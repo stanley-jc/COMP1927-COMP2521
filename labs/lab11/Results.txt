@@ -1,0 +1,30 @@
+Results for Tests on 5000 values
+
+Depth = depth of tree, Cost = average #comparisons per search
+
+
+             Ascending Order        Prefix Order        Random Order
+Insert
+Method       Depth      Cost     Depth      Cost     Depth      Cost
+
+L         __5000__   __3144__  __13____  __12____  __28____  __16____
+
+A         __5000__   __1887__  __2954__  __1115__  __28____  __16____
+
+R         __2492__   __952___  __1774__  __674___  __27____  __15____
+  
+B         __204___   __62____  __20____  __14____  __23____  __13____
+
+S         __4999__   __24____  __3977__  __23____  __31____  __23____
+
+V         __13____   __12____  __14____  __12____  __15____  __12____
+
+
+Notes (what the above indicates):
+It's obvious that insert values in an ascending order is a really costly strategy, it has most depth and cost except in the AVL method. Especially in method L, A and S, the depth(space) is almost as much as the number of the values. The main reason could be that an ascending order means a worst case, the tree would look like a bias if you insert at the leaves.
+
+A AVL insert method is really efficient, it has the least depth and cost in all inserting orders. An AVL tree is a balanced tree, which always keeps balanced, thus it has a O(logn)cost. While the S insert method(Splay Tree approach) changes the structure of the tree. B insert method periodically rebalance the tree, so it has a refining process, which makes it rather efficient.
+
+All insert methods performs well in an random order, I think it's bacause that in an ascending order or a prefix order, the input contains some bad cases, which affects the efficiency. The prefix order also has an significant efficiency, while it use more "space" to get lower cost.
+
+In conclusion, insert method B, S and V are rather low-cost method, and AVL approach is a comprehensive and elegent strategy.
