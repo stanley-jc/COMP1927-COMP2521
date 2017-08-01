@@ -1,0 +1,44 @@
+Input size	Initial Order	Has Duplicates	Number Of Runs	Use 1 Avg T	Sort Avg time	
+5000		Random		Y		3		0.052s		0.004s	
+5000		Sorted		Y		3		0.092s		0.004s				
+5000 		Reverse		Y		3		0.040s		0.004s 	
+5000		Random		N		3		0.052s		0.004s
+5000		Sorted		N		3		0.072s		0.004s				
+5000 		Reverse		N		3		0.048s		0.004s
+10000		Random		Y		3		0.184s		0.012S 	
+10000		Sorted		Y		3		0.260S		0.004S				
+10000 		Reverse		Y		3		0.148S		0.004S 	
+10000		Random		N		3		0.184S		0.008S
+10000		Sorted		N		3		0.256S		0.004s				
+10000 		Reverse		N		3		0.152s		0.004s
+100000		Random		Y		3		24.464s		0.104S 	
+100000		Sorted		Y		3		19.149S		0.040S				
+100000 		Reverse		Y		3		1.827S		0.004S 	
+100000		Random		N		3		25.299S		0.080S
+100000		Sorted		N		3		19.740S		0.028s				
+100000		Reverse		N		3		15.800s		0.004s
+
+
+Trends:
+As the data size increases, our team algorithm's running time increased exponentially. Whereas, the Linux sorting function increased at a much slower rate.
+Therefore, we believe the Linux sorting program uses a divide and conquer algorithm which brings the average running case to O(nlogn). 
+One of the overaching reasons for this is that our algorithm traverses through elements once at a time meaning it is inefficient and has a best and worst running case of O(n^2).
+This is because for every nth element, the algorithm must go through n-1th elements at the worst case scenario before sorting it. 
+
+Big O Notation:
+The unix sort algorithm is very fast. When comparing similar times to different input sizes, a trend can be seen
+For example, 10000 input size, random, no duplicates takes an average of 0.008s. 
+At 100000 (10x more) it takes an average of 0.080s. 
+The time has increased by exactly 10x, meaning in the case of random, no duplicates, this is the unix sorts worse case scenario of O(n)
+In most other cases its quite observable that it is O(nlogn), or in the case of an already sorted list, O(logn)
+
+However for our very inefficient algorithm, it notation seems to always be O(n^2), since the insertion function has a best case of O(n) and the 
+sort function given to us by the tutors uses the function n times. However, in cases when the list is reversed, the insertion function has a case of O(1) 
+because it terminates after the first item knowing it is already in position. This makes reverse lists with duplicates a best case at O(n)
+
+Differences:
+For our implementation we use linked lists. While an efficient and light ADT, there is confidence that in order to be so fast, the unix sort algorithm must not transverse 
+or use linked lists like our algorithm does. See the previous comments on divide and conquer.
+
+Robert, Jingcheng, Hai Long
+
